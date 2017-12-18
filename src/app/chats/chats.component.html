@@ -1,0 +1,28 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened="true">
+    <div class="header-side-nav-content">
+        <button mat-button *ngIf="removeMultpleChatRoomsActive" (click)="removeSelectedChatRooms()" >Eliminar los seleccionados</button>
+      <button mat-mini-fab class="menubutton" [matMenuTriggerFor]="menu" style="float: right">
+        <mat-icon style="color: #838383;">menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="addNewChatRoomActive = true">Add chat room</button>
+        <button mat-menu-item (click)="removeChatRoomActive = true">Remove chat room</button>
+        <button mat-menu-item>update chat room</button>
+      </mat-menu>
+    </div>
+    <mat-list>
+      <mat-list-item *ngFor="let chat of messenger.chatRooms"  style="width: 100%" [class.selected]="chat === selectedChat" (click)="onChatSelected(chat)">
+        {{chat.name}}
+        <button mat-icon-button *ngIf="removeChatRoomActive" (pressup)="removeMultipleChatRoom($event, chat)" (click)="removeChatRoom($event, chat)"
+         style="position: absolute; right: 0px; top: 0px">
+          <mat-icon [ngClass]="{'selected-button-remove' : chat.prepareToRemove , 'default-button-remove' : !chat.prepareToRemove}">delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+    <app-add-chat-room *ngIf="addNewChatRoomActive" (messageEvent)="addChatRoom($event)"></app-add-chat-room>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-chat-room [chat]="selectedChat"></app-chat-room>
+  </mat-sidenav-content>
+</mat-sidenav-container>

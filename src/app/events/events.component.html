@@ -1,0 +1,6 @@
+<h2>Event Log</h2>
+
+<div *ngIf="eventLog.log.length">
+  <button class="clear" (click)="eventLog.clear()">clear</button>
+  <div *ngFor='let log of eventLog.log'> {{log}} </div>
+</div>

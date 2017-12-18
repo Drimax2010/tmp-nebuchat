@@ -1,0 +1,10 @@
+.send-message-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.send-message-text-box {
+  width: 60%;
+
+}

@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+
+    <mat-toolbar-row>
+      <span>{{title}}</span>
+      <span class="toolbar-spacer"></span>
+      <nav>
+        <a mat-button routerLink="/dashboard">
+          <mat-icon>home</mat-icon> Dashboard</a>
+        <a mat-button routerLink="/config">
+          <mat-icon>settings</mat-icon> Config</a>
+        <a mat-button (click)="openSnackBar()">
+          <mat-icon>chat</mat-icon> Chats</a>
+        <a mat-button routerLink="/events">
+          <mat-icon>info</mat-icon> Events</a>
+      </nav>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+
+  <router-outlet></router-outlet>

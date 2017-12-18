@@ -1,0 +1,9 @@
+<mat-form-field style="width: 50px">
+  <input matInput placeholder="id" [(ngModel)]="chatId">
+</mat-form-field>
+<mat-form-field>
+  <input matInput placeholder="Name" [(ngModel)]="chatName">
+</mat-form-field>
+<button mat-mini-fab color="primary" style="float: right; margin-top: 9px; margin-right: 10px" (click)="save()">
+    <mat-icon style="color: #ffffff;">done</mat-icon>
+  </button>

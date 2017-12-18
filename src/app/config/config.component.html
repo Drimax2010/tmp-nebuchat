@@ -1,0 +1,46 @@
+<div>
+  <mat-card class="mqtt-card">
+    <mat-card-header>
+      <mat-card-title>
+        MQTT Connection
+        <svg height="50" width="50" class="circle">
+          <circle cx="25" cy="25" r="10" [ngClass]="{'connected' : messenger.state, 'diconnected' : !messenger.state}" style="bottom: 0;" />
+        </svg>
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{messenger.hostname}}:{{messenger.port}}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="form">
+        <mat-form-field class="full-width">
+          <input matInput [(ngModel)]="messenger.hostname" placeholder="type here the url">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput [(ngModel)]="messenger.port" placeholder="port">
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="mqtt-card">
+    <mat-card-header>
+      <mat-card-title>General Config</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="form">
+        <mat-form-field class="full-width">
+          <input matInput [(ngModel)]="messenger.myDisplayName" placeholder="your user name">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput [(ngModel)]="messenger.myChatId" placeholder="chat unique id">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput [(ngModel)]="messenger.myChatName" placeholder="chat friendly name">
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+<button mat-raised-button color="primary" type="button" class="save-btn" (click)="save()">Save</button>

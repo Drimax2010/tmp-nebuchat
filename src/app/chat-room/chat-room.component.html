@@ -1,0 +1,18 @@
+<div *ngIf="chat">
+
+    <mat-list>
+      <h2 mat-subheader>Current chat: {{chat.id}}:{{chat.name}}</h2>
+      <mat-list-item *ngFor="let msg of chat.messages">
+        <mat-icon mat-list-icon>announcement</mat-icon>
+        <p mat-line> {{msg}} </p>
+      </mat-list-item>
+    </mat-list>
+    <div class="send-message-container">
+      <mat-form-field class="send-message-text-box">
+        <input matInput [(ngModel)]="message" cla placeholder="Write a message here" (keyup.enter)="send()">
+      </mat-form-field>
+      <button mat-mini-fab>
+          <mat-icon>send</mat-icon>
+        </button>
+    </div>
+  </div>
